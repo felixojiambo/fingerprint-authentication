@@ -56,7 +56,8 @@
 
                             <div class="col-md-6">
                                 <input type="hidden" id="hidden_fingerprint" name="hidden_fingerprint" value="">
-                                <input id="fingerprintCapture" type="file" class="form-control-file @error('fingerprint') is-invalid @enderror" name="fingerprint_image" accept=".bmp,.jpg,.jpeg,.png" required>
+                                <input id="fingerprintCapture" type="file" class="form-control-file @error('fingerprint_image') is-invalid @enderror" name="fingerprint_image" accept=".bmp,.jpg,.jpeg,.png" required>
+
                                 <small class="form-text text-muted">Please upload an image of your fingerprint.</small>
 
                                 @error('fingerprint')
