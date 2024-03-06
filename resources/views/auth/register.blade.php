@@ -5,7 +5,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -55,7 +55,8 @@
                             <label for="fingerprint" class="col-md-4 col-form-label text-md-right">{{ __('Fingerprint') }}</label>
 
                             <div class="col-md-6">
-                                <input id="fingerprint" type="file" class="form-control-file @error('fingerprint') is-invalid @enderror" name="fingerprint" accept=".bmp,.jpg,.jpeg,.png" required>
+                                <input type="hidden" id="fingerprint" name="fingerprint" value="">
+                                <input id="fingerprintCapture" type="file" class="form-control-file @error('fingerprint') is-invalid @enderror" name="fingerprint" accept=".bmp,.jpg,.jpeg,.png" required>
                                 <small class="form-text text-muted">Please upload an image of your fingerprint.</small>
 
                                 @error('fingerprint')
@@ -79,3 +80,5 @@
         </div>
     </div>
 </div>
+
+<script src="{{ asset('js/fingerprint.js') }}"></script>
