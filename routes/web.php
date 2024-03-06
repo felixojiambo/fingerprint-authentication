@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 
 use App\Http\Controllers\Auth\UserController;
+Route::post('/fingerprint-login', 'Auth\LoginController@fingerprintLogin')->name('fingerprint.login');
 
 Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
