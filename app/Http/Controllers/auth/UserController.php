@@ -16,18 +16,18 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'fingerprint' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust image validation rules as needed
+            'fingerprint_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust image validation rules as needed
         ]);
 
         // Store user's basic details in the database
-        $user->fingerprint = $request->fingerprint;
-
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+
         // Handle fingerprint data storage - You'll need to adjust this based on how you store fingerprints
-        $user->fingerprint = $request->file('fingerprint')->store('fingerprint_images'); // Store fingerprint image in storage/app/public/fingerprint_images
+        $user->fingerprint = $request->file('fingerprint_image')->store('fingerprint_images'); // Store fingerprint image in storage/app/public/fingerprint_images
+        
         $user->save();
 
         // Redirect user to login page or any other page after successful registration
