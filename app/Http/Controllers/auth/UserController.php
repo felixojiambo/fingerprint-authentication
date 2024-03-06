@@ -20,6 +20,8 @@ class UserController extends Controller
         ]);
 
         // Store user's basic details in the database
+        $user->fingerprint = $request->fingerprint;
+
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
