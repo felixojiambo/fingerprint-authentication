@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->binary('fingerprint')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->string('fingerprint')->nullable();
+
         });
     }
 
