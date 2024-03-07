@@ -46,4 +46,9 @@ class LoginController extends Controller
         // Compare provided fingerprint with decrypted stored fingerprint
         return $providedFingerprint === $decryptedStoredFingerprint;
     }
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
 }

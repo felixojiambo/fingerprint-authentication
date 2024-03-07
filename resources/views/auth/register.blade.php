@@ -81,5 +81,6 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
 <script src="{{ asset('js/fingerprint.js') }}"></script>
