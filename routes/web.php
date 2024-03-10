@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
