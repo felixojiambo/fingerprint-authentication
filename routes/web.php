@@ -13,6 +13,8 @@ Route::get('/', function () {
 // routes/web.php
 Route::post('/verify', 'FingerprintController@verify');
 
+Route::post('/verify-fingerprint', 'FingerprintVerificationController@verify');
+
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

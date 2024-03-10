@@ -5,7 +5,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -36,7 +36,6 @@
                             </div>
                         </div>
 
-                        <!-- Option for fingerprint authentication -->
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">{{ __('Authentication Method') }}</label>
 
@@ -53,12 +52,14 @@
                                         {{ __('Fingerprint') }}
                                     </label>
                                 </div>
+                            </div>
+                        </div>
 
-                                @error('auth_method')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="form-group row">
+                            <label for="fingerprint_image" class="col-md-4 col-form-label text-md-right">{{ __('Fingerprint Image') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="fingerprint_image" type="file" class="form-control-file" name="fingerprint_image" accept="image/*">
                             </div>
                         </div>
 
@@ -93,4 +94,3 @@
         </div>
     </div>
 </div>
-<link rel="stylesheet" href="assets/css/login.css">
