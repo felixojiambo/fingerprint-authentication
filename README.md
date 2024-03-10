@@ -11,6 +11,7 @@ resources/views/: Holds Blade templates for UI views.
 routes/web.php: Defines web routes for the application.
 public/: Contains publicly accessible assets like CSS, JavaScript, and image files.
 database/migrations/: Contains database migration files for defining database schema.
+
 3. Installation:
 
 Clone the project repository from GitHub: git clone https://github.com/felixojiambo/fingerprint-authentication.git

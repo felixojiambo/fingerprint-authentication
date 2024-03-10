@@ -11,39 +11,39 @@ class LoginController extends Controller
 {
     public function fingerprintLogin(Request $request)
     {
-        // Validate incoming request data
+       
         $request->validate([
             'email' => 'required|email',
-            'fingerprint' => 'required|string', // Assuming fingerprint is sent as a string
+            'fingerprint' => 'required|string', 
         ]);
 
-        // Retrieve user by email
+    
         $user = User::where('email', $request->input('email'))->first();
 
-        // Check if user exists
+        
         if (!$user) {
             return redirect()->back()->withErrors(['email' => 'User not found.']);
         }
 
-        // Decrypt stored fingerprint for comparison
+      
         $storedFingerprint = $user->fingerprint;
 
-        // Compare provided fingerprint with stored fingerprint
+       
         if (!$storedFingerprint || !$this->verifyFingerprint($request->input('fingerprint'), $storedFingerprint)) {
             return redirect()->back()->withErrors(['fingerprint' => 'Fingerprint authentication failed.']);
         }
 
-        // Fingerprint authentication successful, log in user
+      
         auth()->login($user);
         return redirect()->intended('/home');
     }
 
     protected function verifyFingerprint($providedFingerprint, $storedFingerprint)
     {
-        // Decrypt stored fingerprint
+    
         $decryptedStoredFingerprint = Crypt::decryptString($storedFingerprint);
 
-        // Compare provided fingerprint with decrypted stored fingerprint
+      
         return $providedFingerprint === $decryptedStoredFingerprint;
     }
     public function showLoginForm()
@@ -52,3 +52,29 @@ class LoginController extends Controller
     }
 
 }
+
+
+
+
+// use Illuminate\Support\Facades\Auth;
+// use Laravel\Sanctum\PersonalAccessToken;
+
+// public function login(Request $request)
+// {
+//     $fingerprintData = $request->input('fingerprint');
+//     $hashedFingerprint = Hash::make($fingerprintData); // Hash the provided fingerprint data
+
+//     // Retrieve the user by email or another identifier
+//     $user = User::where('email', $request->input('email'))->first();
+
+//     if ($user && Hash::check($fingerprintData, $user->fingerprint)) {
+//         // The fingerprint matches, authenticate the user
+//         // Authenticate the user and issue a token
+//         $token = $user->createToken('authToken')->plainTextToken;
+
+//         return response()->json(['message' => 'User authenticated successfully', 'token' => $token]);
+//     } else {
+//         // The fingerprint does not match or the user does not exist
+//         return response()->json(['error' => 'Invalid credentials'], 401);
+//     }
+// }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -9,8 +9,14 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function showRegistrationForm()
+    {
+        return view('auth.register'); // Adjust the view path as necessary
+    }
+    
     public function register(Request $request)
     {
+        Log::info('Register method was called');
         // Validate user input
         $request->validate([
             'name' => 'required|string|max:255',
