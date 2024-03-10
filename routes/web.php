@@ -7,7 +7,11 @@ use App\Http\Controllers\Auth\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
+
+//Laravel's built-in authentication scaffolding, you don't need to define a login method in your LoginController
+//Auth::routes();
+// routes/web.php
+Route::post('/verify', 'FingerprintController@verify');
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
