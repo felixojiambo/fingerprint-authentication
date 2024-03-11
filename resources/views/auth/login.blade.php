@@ -1,10 +1,80 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* General container styling */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-                <div class="card-body">
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        /* Label styling */
+        .col-form-label {
+            font-weight: bold;
+        }
+
+        /* Input field styling */
+        .form-control {
+            border-radius: 0;
+            border: 1px solid #ced4da;
+            padding: 10px;
+        }
+
+        /* File input styling */
+        .form-control-file {
+            border-radius: 0;
+            border: 1px solid #ced4da;
+        }
+
+        /* Submit button styling */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        /* Checkbox styling */
+        .form-check-input {
+            margin-top: 0.3rem;
+        }
+
+        /* Link styling */
+        .btn-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        /* Invalid feedback styling */
+        .invalid-feedback {
+            color: #dc3545;
+        }
+
+        /* Form text styling */
+        .form-text {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Login') }}</div>
+
+                    <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" enctype="multipart/form-data">
                         @csrf
 
@@ -89,8 +159,10 @@
                             </div>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
+</html>

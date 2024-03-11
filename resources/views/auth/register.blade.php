@@ -1,14 +1,73 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        /* General container styling */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-                <div class="card-body">
-                    <form  method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-                        @csrf
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-                        <div class="form-group row">
+        /* Label styling */
+        .col-form-label {
+            font-weight: bold;
+        }
+
+        /* Input field styling */
+        .form-control {
+            border-radius: 0;
+            border: 1px solid #ced4da;
+            padding: 10px;
+        }
+
+        /* File input styling */
+        .form-control-file {
+            border-radius: 0;
+            border: 1px solid #ced4da;
+        }
+
+        /* Submit button styling */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        /* Invalid feedback styling */
+        .invalid-feedback {
+            color: #dc3545;
+        }
+
+        /* Form text styling */
+        .form-text {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Register') }}</div>
+
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -75,12 +134,15 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
-<script src="{{ asset('js/fingerprint.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <script src="{{ asset('js/fingerprint.js') }}"></script>
+</body>
+</html>
