@@ -39,3 +39,6 @@ Route::post('/password/confirm', [ConfirmablePasswordController::class, 'confirm
 Route::get('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->middleware(['signed'])->name('verification.verify');
 Route::post('/email/resend', [VerificationController::class, 'resend'])->middleware(['throttle:6,1'])->name('verification.resend');
+Route::get('/home', function () {
+    return view('auth.home');
+})->name('home');
